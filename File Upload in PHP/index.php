@@ -1,6 +1,6 @@
 <?php
 //Creating Directory to store
-//Creating user interface
+//Creating user interface, test
 ?>
 
     <form method="POST" enctype="multipart/form-data" action="upload.php">
