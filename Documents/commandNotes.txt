@@ -58,3 +58,17 @@ cd /mnt/volume_nyc1_01
 cd SoftwareProject
 pwd #should say /mnt/volume_nyc1_01/SoftwareProject
 git pull
+
+//Runinning container and force rebuild
+docker build -t peershare-nginx .
+
+//GO into the container
+docker exec -it peershare-nginx1 /bin/bash
+
+//Running
+docker run -it --name peershare-nginx1 -p 80:80 -d -v $(pwd)/peershare:/usr/share/nginx/html peershare-nginx
+
+//nginx directory
+/usr/share/nginx/html
+
+fileproject.vsabado.com
