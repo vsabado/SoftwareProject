@@ -44,7 +44,7 @@ docker build -t peershare-nginx .
 docker remove peershare-nginx
 ```
 
-## GO into the container
+## Go into the container
 ```
 docker exec -it peershare-nginx1 /bin/bash
 ```

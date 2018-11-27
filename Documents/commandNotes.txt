@@ -72,3 +72,21 @@ docker run -it --name peershare-nginx1 -p 80:80 -d -v $(pwd)/peershare:/usr/shar
 /usr/share/nginx/html
 
 fileproject.vsabado.com
+
+
+
+
+
+
+
+
+
+---------------------------------
+SSL Certificate
+https://letsencrypt.org/getting-started/
+https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx
+
+Server info: nginx, Ubuntu 18.04
+
+dns-plugin, we used google domain
+https://certbot-dns-google.readthedocs.io/en/stable/
