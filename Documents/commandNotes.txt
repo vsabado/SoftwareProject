@@ -4,6 +4,8 @@
 //SSH into droplet
 ssh root@68.183.122.168
 
+//Full guide how to login
+//https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/putty/
 
 
 //Volumes instruction
