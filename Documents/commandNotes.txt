@@ -1,0 +1,58 @@
+//Digital Ocean Droplet commands
+
+
+//SSH into droplet
+ssh root@68.183.122.168
+
+
+
+//Volumes instruction
+
+sudo mkfs.ext4 /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01
+
+
+Configure your volume
+To configure your volume, do the following:
+
+Log into the Droplet
+$ ssh root@68.183.122.168 Copy
+Format the volume: First time only
+WARNING: This step will destroy all existing data on the volume. Only run this command on a new volume or if you're sure you want to destroy the existing data.
+
+$ sudo mkfs.ext4 /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 Copy
+Mount the volume
+Run the following commands on the Droplet to make your volume accessible:
+
+# Create a mount point for your volume:
+$ mkdir -p /mnt/volume_nyc1_01
+
+# Mount your volume at the newly-created mount point:
+$ mount -o discard,defaults,noatime /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /mnt/volume_nyc1_01
+
+# Change fstab so the volume will be mounted after a reboot
+$ echo '/dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /mnt/volume_nyc1_01 ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab Copy
+Access the volume, write files, and store other data on the volume in the Droplet's /mnt/volume_nyc1_01 directory. The data will persist if you detach the volume and will be available when the volume is reattached to another Droplet.
+
+//Update the droplet
+sudo apt-get update
+
+//Pull nginx docker image
+//reference image: https://docs.docker.com/samples/library/nginx/
+docker pull nginx
+
+
+//clone the repo
+git clone git@github.com:vsabado/SoftwareProject.git
+
+
+//generate keygen inside the droplet
+keygen -t rsa
+
+
+
+
+//How to update the repo inside the droplet
+cd /mnt/volume_nyc1_01
+cd SoftwareProject
+pwd #should say /mnt/volume_nyc1_01/SoftwareProject
+git pull
