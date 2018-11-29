@@ -2,6 +2,10 @@ var React = require('react');
 var randomstring = require('randomstring');
 var Peer = require('peerjs');
 
+app.use('/peerjs', peerserver);
+
+
+
 module.exports = React.createClass({
 	propTypes: {
 		opts: React.PropTypes.object
@@ -9,18 +13,18 @@ module.exports = React.createClass({
 
 	getInitialState: function(){
 		return {
-			peer: new Peer({key: this.props.opts.peerjs_key}), //for testing
-			/*
+			//peer: new Peer({key: this.props.opts.peerjs_key}), //for testing
+
 			//for production:
-			peer = new Peer({
-			  host: 'yourwebsite.com', port: 3000, path: '/peerjs',
+			peer:  new Peer({
+			  host: 'fileproject.vsabado.com/', port: 9000, path: '/peerjs',
 			  debug: 3,
 			  config: {'iceServers': [
 			    { url: 'stun:stun1.l.google.com:19302' },
 			    { url: 'turn:numb.viagenie.ca', credential: 'muazkh', username: 'webrtc@live.com' }
 			  ]}
-			})
-			*/
+			}),
+
 			my_id: '',
 			peer_id: '',
 			initialized: false,
