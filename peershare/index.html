@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>React File Sharer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="./mui.min.css" rel="stylesheet" type="text/css"/>
+</head>
+
+
+<body onload=askForChatName(); style="background-color: dodgerblue">
+
+<div style="margin: 20px;">
+    <div style="border: solid white 2px; width: 25%;  margin: auto;margin-bottom: 20px; margin-top: 20px; padding: 10px; border-radius: 35px">
+        <h2 style="text-align: center; font-weight: bold; margin: 0; padding: 15px; color: white">FILE TRANSFER.</h2>
+    </div>
+</div>
+<div class="mui-container">
+    <div class="mui-container" style="width: 70%;">
+        <div id="main" class="mui-panel"></div>
+    </div>
+    <script src="js/main.js"></script>
+</div>
+
+<script>
+    function askForChatName() {
+        var chatName = null;
+        var randNumber = Math.floor(Math.random() * 60060);
+        while (chatName == null) {
+            chatName = prompt("Enter a chatroom and let your partner know the ID! Please ensure that it consists of at least 3 characters and does not include any special characters.", randNumber);
+        }
+        var myDiv = document.getElementById('tlkio');
+        myDiv.setAttribute("data-channel", chatName);
+        askForUsername(myDiv);
+    }
+
+    function askForUsername(myDiv) {
+        var userName = null;
+            if(userName === null){
+                userName = prompt("Please enter a username!", "Harry Potter");
+                if(userName === "Harry Potter"){
+                    alert("yerrrrrrrr a wizzzzzzard Harry"); //This is just me trolling
+                }else if(userName === "Frank Liu"){
+                    alert("I'm not a gambler!")
+                }
+            }
+            myDiv.setAttribute('data-nickname', userName);
+    }
+</script>
+
+<!--Embeds the chat into the website. Documentation at https://tlk.io/ -->
+<div id="tlkio" data-channel="hey" data-nickname="" style="width:100%;height:400px;"></div>
+<script async src="http://tlk.io/embed.js" type="text/javascript"></script>
+
+
+</body>
+</html>
